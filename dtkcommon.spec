@@ -1,6 +1,8 @@
 # This package contains files under %%_libdir but no binary files
 %global debug_package %{nil}
 
+%define devname %mklibname -d dtkcommon
+
 Name:           dtkcommon
 Version:        5.6.30
 Release:        1
@@ -14,11 +16,13 @@ BuildRequires:  cmake
 %description
 This package contains common configuration files for DTK.
 
-%package        devel
-Summary:        Development package for %{name}
-Requires:       %{name}%{?_isa} = %{version}-%{release}
 
-%description    devel
+%package -n %{devname}
+Summary:        Development package for %{name}
+Requires:       %{name} = %{EVRD}
+Provides:       dtkcommon-devel = %{EVRD}
+
+%description -n %{devname}
 This package contains common build configuration files for DTK.
 
 %prep
@@ -36,7 +40,7 @@ This package contains common build configuration files for DTK.
 %doc README.md
 %{_datadir}/dsg/configs/org.deepin.dtk.preference.json
 
-%files devel
+%files -n %{devname}
 %{_libdir}/cmake/Dtk/
 %{_libdir}/cmake/Dtk6/
 %{_libdir}/cmake/DtkBuildHelper/
