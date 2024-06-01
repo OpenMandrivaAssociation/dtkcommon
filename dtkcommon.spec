@@ -2,16 +2,13 @@
 %global debug_package %{nil}
 
 Name:           dtkcommon
-Version:        5.6.21
-Release:        %autorelease
+Version:        5.6.30
+Release:        1
 Summary:        DTK common files
-
-# migrated to SPDX
+Group:          System/Deepin
 License:        BSD-3-Clause
 URL:            https://github.com/linuxdeepin/dtkcommon
-Source0:        %{url}/archive/%{version}/%{name}-%{version}.tar.gz
-
-BuildRequires:  gcc-c++
+Source0:        https://github.com/linuxdeepin/dtkcommon/archive/%{version}/%{name}-%{version}.tar.gz
 BuildRequires:  cmake
 
 %description
@@ -29,10 +26,10 @@ This package contains common build configuration files for DTK.
 
 %build
 %cmake
-%cmake_build
+%make_build
 
 %install
-%cmake_install
+%make_install -C build
 
 %files
 %license LICENSE
