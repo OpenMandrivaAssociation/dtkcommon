@@ -4,7 +4,7 @@
 %define devname %mklibname -d dtkcommon
 
 Name:           dtkcommon
-Version:        5.6.34
+Version:        5.7.1
 Release:        1
 Summary:        DTK common files
 Group:          System/Deepin
